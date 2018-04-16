@@ -1,0 +1,26 @@
+%{ 
+#include<stdio.h> 
+%} 
+%token NAME NUMBER 
+%% 
+Statement : NAME ‘=’ expr  ; 
+   | expr 
+expr  : expr expr ‘+’ { $$=$1+$3; 
+      printf(“Ans = %d”, $$); 
+   | expr expr ‘-‘ { $$=$1-$3; 
+      printf(“Ans = %d”, $$);  
+   | expr expr ‘*‘ { $$=$1*$3; 
+      printf(“Ans = %d”, $$); 
+| expr expr ‘/‘ { $$=$1/$3; 
+      printf(“Ans = %d”, $$);  
+| NUMBER 
+   ; 
+%% 
+Int main() 
+{ 
+Return yyparse(); 
+} 
+Int yyerror(char* msg) 
+{ 
+Return printf(“%s”,msg); 
+} 
