@@ -1,0 +1,1 @@
+%{ #include<stdio.h> %} %token NAME NUMBER %% Statement : NAME ‘=’ expr    ;    | expr expr  : expr ‘+’ NUMBER    | expr ‘-‘ NUMBER    | NUMBER    ; %% Int main() { Return yyparse(); } Int yyerror(char* msg) { Return printf(“%s”,msg); }

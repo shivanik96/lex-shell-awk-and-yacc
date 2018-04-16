@@ -1,0 +1,16 @@
+%{ 
+#include<stdio.h> 
+%} 
+%token A B 
+%% 
+Statement : S\n 
+S : A S B 
+ ; 
+%% 
+Int main() 
+{ 
+Return yyparse(); 
+} 
+Int yyerror(char* msg) { 
+Return printf(“%s”,msg); 
+}
